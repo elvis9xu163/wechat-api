@@ -21,7 +21,6 @@ public class AccessTokenApiTest {
 			public void onSuccess(String accessToken, int expiresInSeconds) {
 				System.out.println("accessToken: " + accessToken);
 				System.out.println("expiresInSeconds: " + expiresInSeconds);
-				TestEnv.accessToken = accessToken;
 				i[0] = 1;
 			}
 

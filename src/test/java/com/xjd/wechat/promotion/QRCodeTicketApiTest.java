@@ -3,8 +3,6 @@ package com.xjd.wechat.promotion;
 import org.fest.assertions.api.Assertions;
 import org.junit.Test;
 
-import static com.xjd.wechat.TestEnv.accessToken;
-
 /**
  * @author elvis.xu
  * @since 2017-08-15 17:21
@@ -13,7 +11,7 @@ public class QRCodeTicketApiTest {
 	@Test
 	public void testGetQRCodeTicket() throws Exception {
 		int[] i = {0};
-		QRCodeTicketApi.getQRCodeTicket(accessToken, true, 60 * 60 * 24 * 10, null, "我是参数&想怎么写就怎么写", new QRCodeTicketApi.QRCodeTicketCallback() {
+		QRCodeTicketApi.getQRCodeTicket("xxx", true, 60 * 60 * 24 * 10, null, "我是参数&想怎么写就怎么写", new QRCodeTicketApi.QRCodeTicketCallback() {
 			@Override
 			public void onSuccess(String ticket, int expireInSeconds, String url) {
 				System.out.println("ticket: " + ticket);

@@ -13,7 +13,7 @@ public class UserUserInfoApiTest {
 	@Test
 	public void getUserInfo() throws Exception {
 		int[] i = {0};
-		UserUserInfoApi.getUserInfo("jp2EfbOvNB5a_t2BbxRJbkunIRDeJeWESBQM4K8eTAKnEYvpFXrUoobIsJmoP81KliQZclL4G4ykipp9EgR4Sgl3iKbAmTjYF2fJJvozKZQ", "oWTCBwWqXFntRgkfsGDmKgj7KvjY", "zh_CN", new UserUserInfoApi.UserUserInfoCallback() {
+		UserUserInfoApi.getUserInfo("7jse5QP8XYJntr_LjD61SZiXNazLsiTGo8z_vlz0_3o1K9vSMCybT9qQDH-IvQ2vmLnlNmlTgGuJVsm6bNlpGQ", "oV6-1wgt0XZkMYl_6Z5O77G0USJo", "zh_CN", new UserUserInfoApi.UserUserInfoCallback() {
 			@Override
 			public void onSuccess(UserUserInfoApi.UserUserInfoEntity entity) {
 				System.out.println(ApiUtils.toJson(entity));

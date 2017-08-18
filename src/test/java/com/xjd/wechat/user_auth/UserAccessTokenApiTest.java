@@ -3,7 +3,6 @@ package com.xjd.wechat.user_auth;
 import org.fest.assertions.api.Assertions;
 import org.junit.Test;
 
-import com.xjd.wechat.ApiUtils;
 import com.xjd.wechat.TestEnv;
 
 /**
@@ -15,7 +14,7 @@ public class UserAccessTokenApiTest {
 	@Test
 	public void testGetAccessToken() throws Exception {
 		int[] i = {0};
-		UserAccessTokenApi.getAccessToken(TestEnv.appId, TestEnv.appSecret, "061nURvk1dbYzj0b7htk1HIXvk1nURvk", new UserAccessTokenApi.UserAccessTokenCallback() {
+		UserAccessTokenApi.getAccessToken(TestEnv.appId, TestEnv.appSecret, "081Y3lV4064DrI1OevV40bIpV40Y3lVL", new UserAccessTokenApi.UserAccessTokenCallback() {
 			@Override
 			public void onSuccess(String accessToken, int expiresInSeconds, String refreshToken, String openId, String unionId, String scope) {
 				System.out.println("accessToken: " + accessToken);

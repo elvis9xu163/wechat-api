@@ -3,8 +3,6 @@ package com.xjd.wechat.customer_service;
 import org.fest.assertions.api.Assertions;
 import org.junit.Test;
 
-import static com.xjd.wechat.TestEnv.accessToken;
-
 /**
  * @author elvis.xu
  * @since 2017-08-15 18:14
@@ -14,7 +12,7 @@ public class SendCustomerMsgApiTest {
 	@Test
 	public void testSendCustomerMsgText() throws Exception {
 		final int[] i = {0};
-		SendCustomerMsgApi.sendCustomerMsgText(accessToken, "oWTCBwWqXFntRgkfsGDmKgj7KvjY", "老铁，扎心，香菇，蓝瘦！ <a href='http://f.wozai4u.com'>我是链接</a>", new SendCustomerMsgApi.SendCustomerMsgCallback() {
+		SendCustomerMsgApi.sendCustomerMsgText("xxx", "oWTCBwWqXFntRgkfsGDmKgj7KvjY", "老铁，扎心，香菇，蓝瘦！ <a href='http://f.wozai4u.com'>我是链接</a>", new SendCustomerMsgApi.SendCustomerMsgCallback() {
 			@Override
 			public void onSuccess() {
 				i[0] = 1;
