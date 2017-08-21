@@ -50,7 +50,7 @@ public abstract class UserAccessTokenApi {
 		if (entity.getAccessToken() != null) {
 			callback.onSuccess(entity.getAccessToken(), entity.getExpiresIn(), entity.getRefreshToken(), entity.getOpenId(), entity.getUnionId(), entity.getScope());
 		} else {
-			callback.onFailed(entity.getErrCode(), entity.getErrMsg());
+			callback.onFailure(entity.getErrCode(), entity.getErrMsg());
 		}
 	}
 
@@ -78,7 +78,7 @@ public abstract class UserAccessTokenApi {
 		if (entity.getAccessToken() != null) {
 			callback.onSuccess(entity.getAccessToken(), entity.getExpiresIn(), entity.getRefreshToken(), entity.getOpenId(), entity.getUnionId(), entity.getScope());
 		} else {
-			callback.onFailed(entity.getErrCode(), entity.getErrMsg());
+			callback.onFailure(entity.getErrCode(), entity.getErrMsg());
 		}
 	}
 

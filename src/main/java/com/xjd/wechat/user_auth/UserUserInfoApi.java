@@ -48,7 +48,7 @@ public abstract class UserUserInfoApi {
 		if (entity.getOpenId() != null) {
 			callback.onSuccess(entity);
 		} else {
-			callback.onFailed(entity.getErrCode(), entity.getErrMsg());
+			callback.onFailure(entity.getErrCode(), entity.getErrMsg());
 		}
 	}
 

@@ -5,5 +5,5 @@ package com.xjd.wechat;
  * @since 2017-08-15 16:44
  */
 public interface CommonCallback {
-	void onFailed(int errCode, String errMsg);
+	void onFailure(int errCode, String errMsg);
 }

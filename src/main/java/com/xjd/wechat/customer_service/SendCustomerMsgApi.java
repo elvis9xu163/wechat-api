@@ -28,7 +28,7 @@ public abstract class SendCustomerMsgApi {
 		if (entity.getErrCode() == ApiErrCodes.SC_OK) {
 			callback.onSuccess();
 		} else {
-			callback.onFailed(entity.getErrCode(), entity.getErrMsg());
+			callback.onFailure(entity.getErrCode(), entity.getErrMsg());
 		}
 	}
 

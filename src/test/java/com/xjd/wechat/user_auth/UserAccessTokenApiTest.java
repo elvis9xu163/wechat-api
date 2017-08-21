@@ -27,7 +27,7 @@ public class UserAccessTokenApiTest {
 			}
 
 			@Override
-			public void onFailed(int errCode, String errMsg) {
+			public void onFailure(int errCode, String errMsg) {
 				System.out.println("errCode: " + errCode);
 				System.out.println("errMsg: " + errMsg);
 				i[0] = -1;
@@ -52,7 +52,7 @@ public class UserAccessTokenApiTest {
 			}
 
 			@Override
-			public void onFailed(int errCode, String errMsg) {
+			public void onFailure(int errCode, String errMsg) {
 				System.out.println("errCode: " + errCode);
 				System.out.println("errMsg: " + errMsg);
 				i[0] = -1;

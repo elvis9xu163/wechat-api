@@ -61,7 +61,7 @@ public abstract class QRCodeTicketApi {
 		if (entity.getTicket() != null) {
 			callback.onSuccess(entity.getTicket(), entity.getExpireInseconds(), entity.getUrl());
 		} else {
-			callback.onFailed(entity.getErrCode(), entity.getErrMsg());
+			callback.onFailure(entity.getErrCode(), entity.getErrMsg());
 		}
 	}
 

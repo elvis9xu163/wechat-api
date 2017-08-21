@@ -40,7 +40,7 @@ public abstract class UserInfoApi {
 		if (entity.getSubscribe() != null) {
 			callback.onSuccess(entity);
 		} else {
-			callback.onFailed(entity.getErrCode(), entity.getErrMsg());
+			callback.onFailure(entity.getErrCode(), entity.getErrMsg());
 		}
 	}
 

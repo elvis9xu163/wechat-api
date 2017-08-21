@@ -41,7 +41,7 @@ public abstract class AccessTokenApi {
 		if (accessTokenEntity.getAccessToken() != null) {
 			callback.onSuccess(accessTokenEntity.getAccessToken(), accessTokenEntity.getExpiresIn());
 		} else {
-			callback.onFailed(accessTokenEntity.getErrCode(), accessTokenEntity.getErrMsg());
+			callback.onFailure(accessTokenEntity.getErrCode(), accessTokenEntity.getErrMsg());
 		}
 	}
 
