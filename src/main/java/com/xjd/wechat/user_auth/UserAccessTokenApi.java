@@ -109,7 +109,7 @@ public abstract class UserAccessTokenApi {
 	}
 
 	public static interface UserAccessTokenCallback extends CommonCallback {
-		void onSuccess(String accessToken, int expiresInSeconds, String refreshToken, String openId, String unionId, String scope);
+		void onSuccess(String accessToken, int expireInSeconds, String refreshToken, String openId, String unionId, String scope);
 	}
 
 	@Getter

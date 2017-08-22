@@ -23,6 +23,12 @@ import com.xjd.wechat.CommonEntity;
 public abstract class UserInfoApi {
 	public static final String API_USER_INFO = "https://api.weixin.qq.com/cgi-bin/user/info";
 
+	/**
+	 * @param accessToken
+	 * @param openId
+	 * @param lang zh_CN | zh_TW | en
+	 * @param callback
+	 */
 	public static void getUserInfo(String accessToken, String openId, String lang, UserInfoCallback callback) {
 		String url = API_USER_INFO;
 		List<NameValuePair> params = Arrays.asList(
@@ -86,7 +92,7 @@ public abstract class UserInfoApi {
 		 * 0-未知, 1-男, 2-女
 		 */
 		@JsonProperty("sex")
-		private String sex;
+		private Integer sex;
 
 		@JsonProperty("country")
 		private String country;

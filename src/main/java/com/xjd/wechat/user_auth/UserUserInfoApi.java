@@ -76,7 +76,7 @@ public abstract class UserUserInfoApi {
 		 * 0-未知, 1-男, 2-女
 		 */
 		@JsonProperty("sex")
-		private String sex;
+		private Integer sex;
 
 		@JsonProperty("country")
 		private String country;
