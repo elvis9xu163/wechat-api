@@ -10,6 +10,7 @@ import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.xjd.wechat.ApiUtils;
 import com.xjd.wechat.CommonCallback;
@@ -56,6 +57,7 @@ public abstract class UserInfoApi {
 
 	@Getter
 	@Setter
+	@JsonIgnoreProperties(ignoreUnknown = true)
 	public static class UserInfoEntity extends CommonEntity {
 
 		/**
@@ -70,7 +72,7 @@ public abstract class UserInfoApi {
 		@JsonProperty("remark")
 		private String remark;
 
-		@JsonProperty("groupId")
+		@JsonProperty("groupid")
 		private Long groupId;
 
 		@JsonProperty("tagid_list")
