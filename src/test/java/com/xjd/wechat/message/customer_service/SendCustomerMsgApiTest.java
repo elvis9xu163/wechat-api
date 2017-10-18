@@ -1,4 +1,4 @@
-package com.xjd.wechat.customer_service;
+package com.xjd.wechat.message.customer_service;
 
 import org.fest.assertions.api.Assertions;
 import org.junit.Test;
