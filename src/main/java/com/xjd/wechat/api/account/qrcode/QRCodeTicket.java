@@ -21,7 +21,7 @@ public class QRCodeTicket extends ApiResponse {
 	private String ticket;
 
 	@JsonProperty("expire_seconds")
-	private Integer expireInseconds;
+	private Integer expireSeconds;
 
 	@JsonProperty("url")
 	private String url;

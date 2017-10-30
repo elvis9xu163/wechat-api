@@ -25,7 +25,7 @@ public class UserInfo extends ApiResponse {
 	private Integer subscribe;
 
 	@JsonProperty("subscribe_time")
-	private Long subscribeTimeInSeconds;
+	private Long subscribeTime;
 
 	@JsonProperty("remark")
 	private String remark;
