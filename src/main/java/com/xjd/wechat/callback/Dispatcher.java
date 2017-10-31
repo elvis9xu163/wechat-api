@@ -16,6 +16,7 @@ import com.xjd.wechat.callback.common.*;
 import com.xjd.wechat.callback.event.*;
 
 /**
+ * 回调消息分发器
  * @author elvis.xu
  * @since 2017-10-30 16:59
  */

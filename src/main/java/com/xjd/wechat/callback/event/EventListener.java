@@ -3,6 +3,7 @@ package com.xjd.wechat.callback.event;
 import java.util.Map;
 
 /**
+ * 事件回调消息处理器
  * @author elvis.xu
  * @since 2017-10-30 18:49
  */

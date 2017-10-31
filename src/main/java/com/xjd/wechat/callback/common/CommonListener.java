@@ -5,6 +5,7 @@ import java.util.Map;
 import com.xjd.wechat.callback.Dispatcher;
 
 /**
+ * 普通回调消息处理器
  * @author elvis.xu
  * @since 2017-10-30 17:12
  */

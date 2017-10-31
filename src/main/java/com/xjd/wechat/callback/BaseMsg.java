@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 /**
+ * 回调消息基础类
  * @author elvis.xu
  * @since 2017-10-30 17:32
  */
