@@ -4,8 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
-import com.xjd.wechat.callback.BaseMsg;
-
 /**
  * @author elvis.xu
  * @since 2017-10-30 17:18
@@ -13,11 +11,7 @@ import com.xjd.wechat.callback.BaseMsg;
 @Getter
 @Setter
 @Accessors(chain = true)
-public class ShortVideo extends BaseMsg {
-	private String toUserName;
-	private String fromUserName;
-	private Long createTime;
-	private Long msgId;
+public class ShortVideo extends BaseCommon {
 	private String mediaId;
 	private String thumbMediaId;
 

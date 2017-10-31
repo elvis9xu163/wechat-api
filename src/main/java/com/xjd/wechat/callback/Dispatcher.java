@@ -115,15 +115,20 @@ public class Dispatcher {
 		return document;
 	}
 
-	protected void processText(Document document) {
-		Text msg = new Text()
-				.setToUserName(parseValue(document, "//ToUserName", String.class))
+	protected void parseGeneral(Document document, BaseMsg baseMsg) {
+		baseMsg.setToUserName(parseValue(document, "//ToUserName", String.class))
 				.setFromUserName(parseValue(document, "//FromUserName", String.class))
-				.setCreateTime(parseValue(document, "//CreateTime", Long.class))
-				.setContent(parseValue(document, "//Content", String.class))
-				.setMsgId(parseValue(document, "//MsgId", Long.class));
-		Context context = new Context();
+				.setCreateTime(parseValue(document, "//CreateTime", Long.class));
+		if (baseMsg instanceof BaseCommon) {
+			((BaseCommon) baseMsg).setMsgId(parseValue(document, "//MsgId", Long.class));
+		}
+	}
 
+	protected void processText(Document document) {
+		Text msg = new Text().setContent(parseValue(document, "//Content", String.class));
+		parseGeneral(document, msg);
+
+		Context context = new Context();
 		for (Listener listener : listenerList) {
 			if (listener instanceof CommonListener) {
 				((CommonListener) listener).onText(msg, context);
@@ -133,14 +138,11 @@ public class Dispatcher {
 
 	protected void processImage(Document document) {
 		Image msg = new Image()
-				.setToUserName(parseValue(document, "//ToUserName", String.class))
-				.setFromUserName(parseValue(document, "//FromUserName", String.class))
-				.setCreateTime(parseValue(document, "//CreateTime", Long.class))
 				.setPicUrl(parseValue(document, "//PicUrl", String.class))
-				.setMediaId(parseValue(document, "//MediaId", String.class))
-				.setMsgId(parseValue(document, "//MsgId", Long.class));
-		Context context = new Context();
+				.setMediaId(parseValue(document, "//MediaId", String.class));
+		parseGeneral(document, msg);
 
+		Context context = new Context();
 		for (Listener listener : listenerList) {
 			if (listener instanceof CommonListener) {
 				((CommonListener) listener).onImage(msg, context);
@@ -150,15 +152,12 @@ public class Dispatcher {
 
 	protected void processVoice(Document document) {
 		Voice msg = new Voice()
-				.setToUserName(parseValue(document, "//ToUserName", String.class))
-				.setFromUserName(parseValue(document, "//FromUserName", String.class))
-				.setCreateTime(parseValue(document, "//CreateTime", Long.class))
 				.setMediaId(parseValue(document, "//MediaId", String.class))
 				.setFormat(parseValue(document, "//Format", String.class))
-				.setRecognition(parseValue(document, "//Recognition", String.class))
-				.setMsgId(parseValue(document, "//MsgId", Long.class));
-		Context context = new Context();
+				.setRecognition(parseValue(document, "//Recognition", String.class));
+		parseGeneral(document, msg);
 
+		Context context = new Context();
 		for (Listener listener : listenerList) {
 			if (listener instanceof CommonListener) {
 				((CommonListener) listener).onVoice(msg, context);
@@ -168,14 +167,11 @@ public class Dispatcher {
 
 	protected void processVideo(Document document) {
 		Video msg = new Video()
-				.setToUserName(parseValue(document, "//ToUserName", String.class))
-				.setFromUserName(parseValue(document, "//FromUserName", String.class))
-				.setCreateTime(parseValue(document, "//CreateTime", Long.class))
 				.setMediaId(parseValue(document, "//MediaId", String.class))
-				.setThumbMediaId(parseValue(document, "//ThumbMediaId", String.class))
-				.setMsgId(parseValue(document, "//MsgId", Long.class));
-		Context context = new Context();
+				.setThumbMediaId(parseValue(document, "//ThumbMediaId", String.class));
+		parseGeneral(document, msg);
 
+		Context context = new Context();
 		for (Listener listener : listenerList) {
 			if (listener instanceof CommonListener) {
 				((CommonListener) listener).onVideo(msg, context);
@@ -185,14 +181,11 @@ public class Dispatcher {
 
 	protected void processShortVideo(Document document) {
 		ShortVideo msg = new ShortVideo()
-				.setToUserName(parseValue(document, "//ToUserName", String.class))
-				.setFromUserName(parseValue(document, "//FromUserName", String.class))
-				.setCreateTime(parseValue(document, "//CreateTime", Long.class))
 				.setMediaId(parseValue(document, "//MediaId", String.class))
-				.setThumbMediaId(parseValue(document, "//ThumbMediaId", String.class))
-				.setMsgId(parseValue(document, "//MsgId", Long.class));
-		Context context = new Context();
+				.setThumbMediaId(parseValue(document, "//ThumbMediaId", String.class));
+		parseGeneral(document, msg);
 
+		Context context = new Context();
 		for (Listener listener : listenerList) {
 			if (listener instanceof CommonListener) {
 				((CommonListener) listener).onShortVideo(msg, context);
@@ -202,16 +195,13 @@ public class Dispatcher {
 
 	protected void processLocation(Document document) {
 		Location msg = new Location()
-				.setToUserName(parseValue(document, "//ToUserName", String.class))
-				.setFromUserName(parseValue(document, "//FromUserName", String.class))
-				.setCreateTime(parseValue(document, "//CreateTime", Long.class))
 				.setLocationX(parseValue(document, "//Location_X", BigDecimal.class))
 				.setLocationY(parseValue(document, "//Location_Y", BigDecimal.class))
 				.setScale(parseValue(document, "//Scale", BigDecimal.class))
-				.setLabel(parseValue(document, "//Label", String.class))
-				.setMsgId(parseValue(document, "//MsgId", Long.class));
-		Context context = new Context();
+				.setLabel(parseValue(document, "//Label", String.class));
+		parseGeneral(document, msg);
 
+		Context context = new Context();
 		for (Listener listener : listenerList) {
 			if (listener instanceof CommonListener) {
 				((CommonListener) listener).onLocation(msg, context);
@@ -221,15 +211,12 @@ public class Dispatcher {
 
 	protected void processLink(Document document) {
 		Link msg = new Link()
-				.setToUserName(parseValue(document, "//ToUserName", String.class))
-				.setFromUserName(parseValue(document, "//FromUserName", String.class))
-				.setCreateTime(parseValue(document, "//CreateTime", Long.class))
 				.setTitle(parseValue(document, "//Title", String.class))
 				.setDescription(parseValue(document, "//Description", String.class))
-				.setUrl(parseValue(document, "//Url", String.class))
-				.setMsgId(parseValue(document, "//MsgId", Long.class));
-		Context context = new Context();
+				.setUrl(parseValue(document, "//Url", String.class));
+		parseGeneral(document, msg);
 
+		Context context = new Context();
 		for (Listener listener : listenerList) {
 			if (listener instanceof CommonListener) {
 				((CommonListener) listener).onLink(msg, context);
@@ -239,13 +226,11 @@ public class Dispatcher {
 
 	protected void processEventSubscribe(Document document) {
 		Subscribe msg = new Subscribe()
-				.setToUserName(parseValue(document, "//ToUserName", String.class))
-				.setFromUserName(parseValue(document, "//FromUserName", String.class))
-				.setCreateTime(parseValue(document, "//CreateTime", Long.class))
 				.setEventKey(parseValue(document, "//EventKey", String.class))
 				.setTicket(parseValue(document, "//Ticket", String.class));
-		Context context = new Context();
+		parseGeneral(document, msg);
 
+		Context context = new Context();
 		for (Listener listener : listenerList) {
 			if (listener instanceof EventListener) {
 				((EventListener) listener).onSubscribe(msg, context);
@@ -254,12 +239,10 @@ public class Dispatcher {
 	}
 
 	protected void processEventUnsubscribe(Document document) {
-		Unsubscribe msg = new Unsubscribe()
-				.setToUserName(parseValue(document, "//ToUserName", String.class))
-				.setFromUserName(parseValue(document, "//FromUserName", String.class))
-				.setCreateTime(parseValue(document, "//CreateTime", Long.class));
-		Context context = new Context();
+		Unsubscribe msg = new Unsubscribe();
+		parseGeneral(document, msg);
 
+		Context context = new Context();
 		for (Listener listener : listenerList) {
 			if (listener instanceof EventListener) {
 				((EventListener) listener).onUnsubscribe(msg, context);
@@ -269,13 +252,11 @@ public class Dispatcher {
 
 	protected void processEventScan(Document document) {
 		Scan msg = new Scan()
-				.setToUserName(parseValue(document, "//ToUserName", String.class))
-				.setFromUserName(parseValue(document, "//FromUserName", String.class))
-				.setCreateTime(parseValue(document, "//CreateTime", Long.class))
 				.setEventKey(parseValue(document, "//EventKey", String.class))
 				.setTicket(parseValue(document, "//Ticket", String.class));
-		Context context = new Context();
+		parseGeneral(document, msg);
 
+		Context context = new Context();
 		for (Listener listener : listenerList) {
 			if (listener instanceof EventListener) {
 				((EventListener) listener).onScan(msg, context);
@@ -285,14 +266,12 @@ public class Dispatcher {
 
 	protected void processEventLocation(Document document) {
 		LocationEvent msg = new LocationEvent()
-				.setToUserName(parseValue(document, "//ToUserName", String.class))
-				.setFromUserName(parseValue(document, "//FromUserName", String.class))
-				.setCreateTime(parseValue(document, "//CreateTime", Long.class))
 				.setLatitude(parseValue(document, "//Latitude", BigDecimal.class))
 				.setLongitude(parseValue(document, "//Longitude", BigDecimal.class))
 				.setPrecision(parseValue(document, "//Precision", BigDecimal.class));
-		Context context = new Context();
+		parseGeneral(document, msg);
 
+		Context context = new Context();
 		for (Listener listener : listenerList) {
 			if (listener instanceof EventListener) {
 				((EventListener) listener).onLocation(msg, context);
@@ -302,12 +281,10 @@ public class Dispatcher {
 
 	protected void processEventClick(Document document) {
 		Click msg = new Click()
-				.setToUserName(parseValue(document, "//ToUserName", String.class))
-				.setFromUserName(parseValue(document, "//FromUserName", String.class))
-				.setCreateTime(parseValue(document, "//CreateTime", Long.class))
 				.setEventKey(parseValue(document, "//EventKey", String.class));
-		Context context = new Context();
+		parseGeneral(document, msg);
 
+		Context context = new Context();
 		for (Listener listener : listenerList) {
 			if (listener instanceof EventListener) {
 				((EventListener) listener).onClick(msg, context);
@@ -317,13 +294,11 @@ public class Dispatcher {
 
 	protected void processEventTemplateSendJobFinish(Document document) {
 		TemplateSendJobFinish msg = new TemplateSendJobFinish()
-				.setToUserName(parseValue(document, "//ToUserName", String.class))
-				.setFromUserName(parseValue(document, "//FromUserName", String.class))
-				.setCreateTime(parseValue(document, "//CreateTime", Long.class))
 				.setMsgID(parseValue(document, "//MsgID", Long.class))
 				.setStatus(parseValue(document, "//Status", String.class));
-		Context context = new Context();
+		parseGeneral(document, msg);
 
+		Context context = new Context();
 		for (Listener listener : listenerList) {
 			if (listener instanceof EventListener) {
 				((EventListener) listener).onTemplateSendJobFinish(msg, context);

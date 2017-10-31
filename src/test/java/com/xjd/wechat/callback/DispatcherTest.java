@@ -117,5 +117,22 @@ public class DispatcherTest {
 				" <Content><![CDATA[this is a test]]></Content>\n" +
 				" <MsgId>1234567890123456</MsgId>\n" +
 				" </xml>");
+
+		dispatcher.dispatch("<xml><ToUserName><![CDATA[gh_e75ca3b7b1a4]]></ToUserName>\n" +
+				"<FromUserName><![CDATA[oWTCBwWqXFntRgkfsGDmKgj7KvjY]]></FromUserName>\n" +
+				"<CreateTime>1509413844</CreateTime>\n" +
+				"<MsgType><![CDATA[text]]></MsgType>\n" +
+				"<Content><![CDATA[哈哈]]></Content>\n" +
+				"<MsgId>6482883096533374787</MsgId>\n" +
+				"</xml>");
+
+		dispatcher.dispatch("<xml><ToUserName><![CDATA[gh_e75ca3b7b1a4]]></ToUserName>\n" +
+				"<FromUserName><![CDATA[oWTCBwWqXFntRgkfsGDmKgj7KvjY]]></FromUserName>\n" +
+				"<CreateTime>1509413986</CreateTime>\n" +
+				"<MsgType><![CDATA[image]]></MsgType>\n" +
+				"<PicUrl><![CDATA[http://mmbiz.qpic.cn/mmbiz_jpg/W3SQicHoFWIozCAYQZ3FhNG07SgOicw1X85JLx7ShA6NpY0LJ2nsiag3fyQicouNx2ibJnBA1kWvsK06JnB4NibZIJ2g/0]]></PicUrl>\n" +
+				"<MsgId>6482883706418730899</MsgId>\n" +
+				"<MediaId><![CDATA[B8v4drly7teZLAbTQ6FMX-bqMbszRDZO-E2c9vbpbxQjXlUzs3Un2pTOOm59DzYY]]></MediaId>\n" +
+				"</xml>");
 	}
 }

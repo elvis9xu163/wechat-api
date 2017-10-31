@@ -14,9 +14,6 @@ import lombok.experimental.Accessors;
 @Setter
 @Accessors(chain = true)
 public class LocationEvent extends BaseEvent {
-	private String toUserName;
-	private String fromUserName;
-	private Long createTime;
 	private BigDecimal latitude;
 	private BigDecimal longitude;
 	private BigDecimal precision;

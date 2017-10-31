@@ -6,8 +6,6 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
-import com.xjd.wechat.callback.BaseMsg;
-
 /**
  * @author elvis.xu
  * @since 2017-10-30 17:18
@@ -15,11 +13,7 @@ import com.xjd.wechat.callback.BaseMsg;
 @Getter
 @Setter
 @Accessors(chain = true)
-public class Location extends BaseMsg {
-	private String toUserName;
-	private String fromUserName;
-	private Long createTime;
-	private Long msgId;
+public class Location extends BaseCommon {
 	private BigDecimal locationX;
 	private BigDecimal locationY;
 	private BigDecimal scale;

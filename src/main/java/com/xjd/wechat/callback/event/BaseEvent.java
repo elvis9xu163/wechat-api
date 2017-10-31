@@ -10,7 +10,7 @@ import com.xjd.wechat.callback.BaseMsg;
  * @since 2017-10-30 18:52
  */
 @Getter
-@JsonPropertyOrder({"msgType", "event"})
+@JsonPropertyOrder({"msgType", "event", "fromUserName", "toUserName", "createTime"})
 public class BaseEvent extends BaseMsg {
 	private Event event;
 

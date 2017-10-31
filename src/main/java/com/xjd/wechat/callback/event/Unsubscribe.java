@@ -12,9 +12,6 @@ import lombok.experimental.Accessors;
 @Setter
 @Accessors(chain = true)
 public class Unsubscribe extends BaseEvent {
-	private String toUserName;
-	private String fromUserName;
-	private Long createTime;
 
 	public Unsubscribe() {
 		super(Event.UNSUBSCRIBE);

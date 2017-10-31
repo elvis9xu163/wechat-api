@@ -12,9 +12,6 @@ import lombok.experimental.Accessors;
 @Setter
 @Accessors(chain = true)
 public class Click extends BaseEvent {
-	private String toUserName;
-	private String fromUserName;
-	private Long createTime;
 	private String eventKey;
 
 	public Click() {

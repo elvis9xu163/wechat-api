@@ -12,9 +12,6 @@ import lombok.experimental.Accessors;
 @Setter
 @Accessors(chain = true)
 public class TemplateSendJobFinish extends BaseEvent {
-	private String toUserName;
-	private String fromUserName;
-	private Long createTime;
 	private Long msgID;
 	private String status;
 
