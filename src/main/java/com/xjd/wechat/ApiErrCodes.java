@@ -12,6 +12,8 @@ public interface ApiErrCodes {
 
 	int SC_INVALID_OPENID = 40003;
 
+	int SC_INVALID_APPID = 40013;
+
 	int SC_INVALID_AUTH_CODE = 40029;
 
 	int SC_USED_AUTH_CODE = 40163;
@@ -23,5 +25,7 @@ public interface ApiErrCodes {
 	int SC_ACCESS_TOKEN_EXPIRED = 42001;
 
 	int SC_FREQ_EXCEED_LIMIT = 45009;
+
+	int SC_API_UNAUTHORIZED = 48001;
 
 }
