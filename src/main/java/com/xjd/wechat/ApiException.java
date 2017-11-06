@@ -22,6 +22,10 @@ public class ApiException extends RuntimeException {
 		this.url = url;
 	}
 
+	public ApiException(Throwable cause) {
+		super(cause);
+	}
+
 	public String getUrl() {
 		return url;
 	}

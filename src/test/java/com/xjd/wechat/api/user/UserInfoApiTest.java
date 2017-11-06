@@ -12,8 +12,8 @@ import com.xjd.wechat.ApiUtils;
 public class UserInfoApiTest {
 	@Test
 	public void getUserInfo() throws Exception {
-		UserInfo entity = UserInfoApi.getUserInfo("SF1MTsqa_mPE2dMX-MdUUtFk52ulmHddI9xDDRGXlXV_XjEfCZpROq5Bg-t6QrOhXNph9yF2XwyJJKaOow209fL7STJiumhvB_1r7ZQYjVQyJWsosoFlU2lkfqQOcJNFOPOcAFACDC",
-				"oWTCBwWqXFntRgkfsGDmKgj7KvjY", ApiCommons.WLang.ZH_CN);
+		UserInfo entity = UserInfoApi.getUserInfo("SF1MTsqa_mPE2dMX-MdUUnd1ywojVr69jIq7-pr2tjK3MaMwZbdZRWlP-gTfkUtLSaUKk2iTDZ3UCY_SC9eOEnQ9NUqxYxg18XFTRJm-mdS4hSNVPhfZXspXCqzDgMeTXAHeAIABEL",
+				"oWTCBwTUNV7P0MZhyWUkI8xhL-KU", ApiCommons.WLang.ZH_CN);
 		System.out.println(ApiUtils.toJson(entity));
 	}
 

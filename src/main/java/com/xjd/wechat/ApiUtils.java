@@ -2,8 +2,12 @@ package com.xjd.wechat;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.Formatter;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -27,9 +31,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * @since 2017-08-15 15:13
  */
 public abstract class ApiUtils {
-	private static ObjectMapper objectMapper = new ObjectMapper();
-	private static CloseableHttpClient httpClient = HttpClients.createDefault();
-	private static Charset DEFAULT_CHARSET = Charset.forName("utf8");
+	public static final String ALG_SHA1 = "SHA-1";
+	public static final String ALG_MD5 = "MD5";
+
+	protected static ObjectMapper objectMapper = new ObjectMapper();
+	protected static CloseableHttpClient httpClient = HttpClients.createDefault();
+	protected static Charset DEFAULT_CHARSET = Charset.forName("utf8");
 
 	public static void setDefaultCharset(Charset charset) {
 		if (charset == null) {
@@ -114,5 +121,28 @@ public abstract class ApiUtils {
 		} catch (JsonProcessingException e) {
 			throw new RuntimeException(e);
 		}
+	}
+
+	public static String sign(List<NameValuePair> params, String algrithm) {
+		// 排序拼接
+		String paramStr = params.stream().sorted((o1, o2) -> o1.getName().compareTo(o2.getName())).map(e -> e.getName() + "=" + e.getValue()).collect(Collectors.joining("&"));
+
+		// 作摘要
+		MessageDigest digest = null;
+		try {
+			digest = MessageDigest.getInstance(algrithm);
+		} catch (NoSuchAlgorithmException e) {
+			throw new ApiException(e);
+		}
+		byte[] digestBytes = digest.digest(paramStr.getBytes(DEFAULT_CHARSET));
+
+		// 转成16进制
+		Formatter formatter = new Formatter();
+		for (byte b : digestBytes) {
+			formatter.format("%02x", b);
+		}
+		String rt = formatter.toString();
+		formatter.close();
+		return rt;
 	}
 }
