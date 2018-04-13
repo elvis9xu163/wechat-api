@@ -10,6 +10,7 @@ import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
 import org.apache.http.message.BasicNameValuePair;
 
+import com.xjd.wechat.ApiErrCodes;
 import com.xjd.wechat.ApiResponse;
 import com.xjd.wechat.ApiUtils;
 
@@ -169,7 +170,7 @@ public abstract class AuthorizerApi {
 		ApiUtils.assertResponseOk(url, response);
 		ApiResponse entity = ApiUtils.parseJsonResponse(url, response, ApiResponse.class);
 
-		if (entity.getErrCode() == 0) {
+		if (entity.getErrCode() == ApiErrCodes.SC_OK) {
 			entity.setSuccess(true);
 		}
 		return entity;

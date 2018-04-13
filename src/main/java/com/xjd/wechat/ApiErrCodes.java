@@ -28,4 +28,10 @@ public interface ApiErrCodes {
 
 	int SC_API_UNAUTHORIZED = 48001;
 
+	int SC_ACCESS_CLIENT_IP_NOT_REGISTER = 61004;
+
+	int SC_CODE_EXPIRED = 61010;
+
+	int SC_INVALID_REFRESH_TOKEN = 61023;
+
 }
