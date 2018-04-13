@@ -20,6 +20,8 @@ public interface ApiErrCodes {
 
 	int SC_INVALID_IP = 40164;
 
+	int SC_MISSING_ACCESS_TOKEN = 41001;
+
 	int SC_MISSING_AUTH_CODE = 41008;
 
 	int SC_ACCESS_TOKEN_EXPIRED = 42001;
