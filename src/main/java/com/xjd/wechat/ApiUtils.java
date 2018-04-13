@@ -45,6 +45,10 @@ public abstract class ApiUtils {
 		DEFAULT_CHARSET = charset;
 	}
 
+	public static Charset getDefaultCharset() {
+		return DEFAULT_CHARSET;
+	}
+
 	public static ObjectMapper getObjectMapper() {
 		return objectMapper;
 	}
@@ -124,9 +128,10 @@ public abstract class ApiUtils {
 	}
 
 	public static String sign(List<NameValuePair> params, String algrithm) {
-		// 排序拼接
-		String paramStr = params.stream().sorted((o1, o2) -> o1.getName().compareTo(o2.getName())).map(e -> e.getName() + "=" + e.getValue()).collect(Collectors.joining("&"));
+		return sign(joinSorted(params), algrithm);
+	}
 
+	public static String sign(String text, String algrithm) {
 		// 作摘要
 		MessageDigest digest = null;
 		try {
@@ -134,7 +139,7 @@ public abstract class ApiUtils {
 		} catch (NoSuchAlgorithmException e) {
 			throw new ApiException(e);
 		}
-		byte[] digestBytes = digest.digest(paramStr.getBytes(DEFAULT_CHARSET));
+		byte[] digestBytes = digest.digest(text.getBytes(DEFAULT_CHARSET));
 
 		// 转成16进制
 		Formatter formatter = new Formatter();
@@ -145,4 +150,10 @@ public abstract class ApiUtils {
 		formatter.close();
 		return rt;
 	}
+
+	public static String joinSorted(List<NameValuePair> params) {
+		String paramStr = params.stream().sorted((o1, o2) -> o1.getName().compareTo(o2.getName())).map(e -> e.getName() + "=" + e.getValue()).collect(Collectors.joining("&"));
+		return paramStr;
+	}
+
 }

@@ -40,4 +40,17 @@ public interface ApiCommons {
 			return null;
 		}
 	}
+
+	public static enum AUTH_SCOPE {
+		SNSAPI_BASE("snsapi_base"), SNSAPI_USERINFO("snsapi_userinfo");
+
+		String code;
+		AUTH_SCOPE(String code) {
+			this.code = code;
+		}
+
+		public String getCode() {
+			return code;
+		}
+	}
 }
