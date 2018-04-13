@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
-import com.xjd.wechat.escrow.callback.auth.BaseAuth;
+import com.xjd.wechat.escrow.callback.BaseMsg;
 
 /**
  * @author elvis.xu
@@ -13,7 +13,7 @@ import com.xjd.wechat.escrow.callback.auth.BaseAuth;
 @Getter
 @Setter
 @Accessors(chain = true)
-public class ComponentVerifyTicket extends BaseAuth {
+public class ComponentVerifyTicket extends BaseMsg {
 	private String componentVerifyTicket;
 
 	public ComponentVerifyTicket() {
