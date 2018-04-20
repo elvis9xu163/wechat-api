@@ -44,7 +44,7 @@ public abstract class UserEscrowApi {
 		params.add(new BasicNameValuePair("component_access_token", componentAccessToken));
 		params.add(new BasicNameValuePair("appid", appId));
 		params.add(new BasicNameValuePair("code", authorizationCode));
-		params.add(new BasicNameValuePair("grant_type", authorizationCode));
+		params.add(new BasicNameValuePair("grant_type", "authorization_code"));
 
 		HttpResponse response = ApiUtils.get(url, params);
 		ApiUtils.assertResponseOk(url, response);
